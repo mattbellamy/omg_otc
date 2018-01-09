@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
     url(r'otcnews/', include('otcNews.urls', namespace='otcNews', app_name='otcNews')),
-
+    url(r'^search/', views.search, name='search')
 ]

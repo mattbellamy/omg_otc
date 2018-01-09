@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^news$', views.otcNewsList, name='otcnews'),
     url(r'^securities$', views.otcSecuritiesList, name='otcsecurities'),
     url(r'^send$', views.sendNews, name='send'),
+
 ]
