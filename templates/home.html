@@ -5,6 +5,7 @@
     <ul>
         <li><a href="{% url 'otcNews:otcnews' %}">All OTC News</a></li>
         <li><a href="{% url 'otcNews:otcsecurities' %}">All OTC Securities</a></li>
+
     </ul>
 
     <form action="search">
@@ -12,7 +13,7 @@
         <button>Search</button>
     </form>
 
-
+<div class="row"><form action="{% url 'otcNews:send' %}" method="get"></form><button type="submit">Email me the news</button></form> </div>
 
 
 {% endblock %}
