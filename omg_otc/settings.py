@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'otcNews'
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'omg_otc.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(PROJECT_ROOT, 'templates')],
+        'DIRS': [os.path.join(PROJECT_ROOT, '../templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,8 +82,19 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'omgotc': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'omgotc',
+        'USER': 'omgotc',
+        'PASSWORD': '120E43rd',
+        'HOST': 'omgotc.cxlywlzgdbtc.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
+
+DATABASE_ROUTERS = ['otcNews.routers.otcRouter']
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -131,3 +143,11 @@ STATICFILES_DIRS = [
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+#Email settings:
+EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT= 465
+EMAIL_HOST_USER = 'jucharles91@gmail.com'
+EMAIL_HOST_PASSWORD = 'tmymycqndavqaggk'
+DEFAULT_EMAIL_FROM = 'jucharles91@gmail.com'

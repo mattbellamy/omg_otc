@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block scripts %}
+    <script src="https://s3.amazonaws.com/bamotc/list.min.js" type="text/javascript"></script>
+
+    <style>
+        a:visited{
+            color: red;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+        <div id="list" class="row">
+            <div class="row">
+                <input class="search" placeholder="Search for something..." />
+            </div>
+
+
+            <table>
+
+                <tr><th>Country</th><th>Symbol</th><th>Company Name</th><th>Trading Venue</th><th>OTC Tier</th><th>Security Type</th><th>Security Name</th></tr>
+
+                <tbody class="list">
+                    {% for item in securities %}
+                        <tr>
+                            <td class="country">{{ item.country }}</td>
+                            <td class="symbol">{{ item.symbol }}</td>
+                            <td class="name">{{ item.company_name }}</td>
+                            <td class="venue">{{ item.trading_venue }}</td>
+                            <td class="tier">{{ item.otc_tier }}</td>
+                            <td class="type">{{ item.security_type }}</td>
+                            <td class="security_name">{{ item.security_name }}</td>
+
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        <script type="text/javascript">
+            var options = {
+                valueNames: [ 'country','symbol','name','venue','tier','type','security_name' ]
+            };
+            var hackerList = new List('list', options);
+        </script>
+        </div>
+    </div>
+
+{% endblock %}

@@ -15,10 +15,12 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.conf.urls import url
+from django.conf.urls import include, url
 from  omg_otc import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
+    url(r'otcnews/', include('otcNews.urls', namespace='otcNews', app_name='otcNews')),
+
 ]
