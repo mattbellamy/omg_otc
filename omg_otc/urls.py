@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'otcnews/', include('otcNews.urls', namespace='otcNews', app_name='otcNews')),
     url(r'^search/', views.search, name='search'),
     url(r'^goldmine/', views.goldMine, name='goldmine')
+    #url(r'^interesting-securities/',views.interestingSecurities, name='interestingSecurities')
 ]

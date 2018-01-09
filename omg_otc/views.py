@@ -12,3 +12,6 @@ def search(request):
 def goldMine(request):
     newsItems = OtcNews.objects.filter(headline__contains='Restructuring').order_by('-datetime')[:100]
     return render(request, 'goldmine.html', {'newsItems': newsItems})
+
+
+
